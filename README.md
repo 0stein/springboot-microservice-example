@@ -1,37 +1,37 @@
-##2020-10-13
+## 2020-10-13
 현재까지의 상황.
 
-+multiplication
++ multiplication  
 중심이 되는 기능인 두자릿수 무작위 곱셈을 제공, 사용자로부터 전달받은 답안을 처리하는 마이크로서비스.
 
-+gamification
++ gamification  
 게임화 기능 제공. 리더보드, 도전과제(배지) 등등 지속적 참여를 유도하는 로직을 담당하는 마이크로서비스.
 
-+ui
++ ui  
 독립적으로 분리된 ui. 사용자가 곱셈문제에 대한 답안을 적도록 하는 ui.
 
-###주로 사용된 기술
-####backend
+### 주로 사용된 기술
+#### backend
 
-+springboot
++ springboot  
 각각의 마이크로서비스는 스프링부트를 통해 개발됨.
 
-+jpa/h2database
++ jpa/h2database  
 jpa를 이용하여 간단한 작업은 메서드의 이름 규칙에 따라 만들어 처리하였으나, 한층 더 복잡한 작업들은 jpql을 이용하여 구현하였다.
 db는 경량화된 db인 h2를 사용하였다.
 
-+rabbitmq
++ rabbitmq  
 각각의 마이크로서비스는 amqp(메세지 큐 프로토콜)을 구현한 rabbitmq 를 사용해서 통신한다.
 책에서는 이러한 간접적인 통신이 각각의 모듈들의 결합도를 낮추어 확장성을 높이는데 용이하다고 한다.
 
-####frontend
-+webpack
+#### frontend
++ webpack  
 ui와 관련된 의존성을 관리하기 쉽도록 하나의 js파일에 bundle해주는 툴이다.
 이 프로젝트에 두 마이크로서비스와 접촉하는 각각의 js파일, jquery, bootstrap 을 하나의 파일로 만들어 index.html에서 사용한다.
 
-+jquery/ajax
++ jquery/ajax  
 각각의 마이크로서비스가 제공하는 restapi 엔드포인트를 ajax 비동기 통신을 이용했다.
 그리고 javascript코드를 편리하게 단축시켰음.
 
-+bootstrap
++ bootstrap  
 큰 노력없이 보기에 깔끔한 ui를 만들기 위해 bootstrap을 사용한다.
